@@ -30,15 +30,8 @@ const hourHand = document.querySelector('.hour-hand');
         var seconds = today.getSeconds();
         var timeOfDay = "AM";
 
-        if (hours == 0) {
-            hours = 12; // midnight is == 12
-        }
-        if (hours = 12) {
-            timeOfDay = "PM" //switch over to PM at noon
-        }
-        if (hours < 12) {
-            hours = hours - 12; //subtract military time after noon
-            timeOfDay = "PM";
+        if (hours >= 12) {
+            timeOfDay = "PM" //switch over to PM after noon
         }
 
         //creates leading 0 when the digital element is less than 10
