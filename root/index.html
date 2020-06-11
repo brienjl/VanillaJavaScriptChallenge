@@ -4,6 +4,9 @@
 	<title>30 Day JavaScript Challenge</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script type="text/JavaScript" src="https://www.cornify.com/js/cornify.js"></script>
+
 </head>
 <body>
 
@@ -92,6 +95,32 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="list-card">
+			<span class="day">09</span>
+			<div>
+				<h3>Inspired by KONAMI</h3>
+				<span>type my first name on your keyboard</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- super secret unicorn section -->	
+		<script>
+			const pressed = [];
+			const secretCode = 'jeremy';
+
+			window.addEventListener('keyup', (e) => {
+				pressed.push(e.key);
+				pressed.splice(-secretCode.length - 1, pressed.length -secretCode.length);
+
+				if(pressed.join('').includes(secretCode)){
+					console.log('DING')
+					cornify_add();
+				}
+				console.log(pressed);
+			})
+		</script>
 
 </body>
 </html>
