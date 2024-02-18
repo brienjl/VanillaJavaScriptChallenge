@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track the ISS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin="">
+   </script>
+
+<style>
+    #map {  height: 480px; }
+</style>
+
+</head>
+<body>
+    <section class="section has-background-light">
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+                    <h1 class="title">ISS Location</h1>
+                    <p>
+                        latitude: <span id="lat">0</span>°<br />
+                        longitude: <span id="lon">0</span>°<br/>
+                        altitude: <span id="alt">0</span> miles<br/>
+                        velocity: <span id="vel">0</span> mph
+                    </p>
+              </article>
+            </div>
+    </section>
+    <section class="section has-background-light">
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+                <div id="map"></div>
+              </article>
+            </div>
+    </section>
+
+    <script>
+        // making a map and tiles
+        const mymap = L.map('map').setView([0, 0], 1);  // [latitude, longitude], zoom level
+        const attribution =
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+        const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        const tiles = L.tileLayer(tileUrl, { attribution });
+        tiles.addTo(mymap);
+
+         // Making a marker with a custom icon
+        const issIcon = L.icon({
+            iconUrl: 'iss200.png',
+            iconSize: [50, 32],
+            iconAnchor: [25, 16]
+        });
+        const marker = L.marker([0, 0], { icon: issIcon }).addTo(mymap);
+        
+        // Get ISS location & Update Map
+        const api_url = 'https://api.wheretheiss.at/v1/satellites/25544?units=miles';
+        let firstLoad = true;
+
+        async function getISS() {
+            const response = await fetch(api_url);
+            const data = await response.json();
+            const { latitude, longitude, altitude, velocity } = data;
+
+            marker.setLatLng([latitude, longitude]);
+            if (firstLoad) {
+                mymap.setView([latitude, longitude], 4);
+                firstLoad = false;
+            }
+
+            document.getElementById('lat').textContent = latitude.toFixed(4);
+            document.getElementById('lon').textContent = longitude.toFixed(4);
+            document.getElementById('alt').textContent = altitude.toFixed(4);
+            document.getElementById('vel').textContent = velocity.toFixed(4);
+        }
+
+        getISS();
+        setInterval(getISS, 1000);
+
+    </script>
+</body>
+</html>
