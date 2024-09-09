@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
-
 @layer base {
     :root {
         /* colors */
@@ -9,12 +6,22 @@
         --red: #f47d70e0;
 
         /* font families */
-        --main: 'Creepster', system-ui;
-        --sub: 'Nosifer', sans-serif;
+
+        --font-family: system-ui
+        --clr-primary-300: hsl(114, 55%, 46%);
+        --clr-primary-400: hsl(139, 73%, 31%);
+        --clr-primary-500: hsl(140, 90%, 19%);
+        --clr-secondary-300: hsl(269, 75%, 55%);
+        --clr-secondary-400: hsl(269, 75%, 40%);
+        --clr-secondary-500: hsl(269, 75%, 25%);
+        --clr-accent-300: hsl(358, 72%, 65%);
+        --clr-accent-400: hsl(358, 72%, 50%);
+        --clr-accent-500: hsl(358, 72%, 35%);
+
 
         /* type scale*/
-        --base-size: 1.2rem;
-        --scale: 1.25;
+        --base-size: 1.15rem;
+        --scale: 1.10;
         --h1: calc(var(--h2) * var(--scale));
         --h2: calc(var(--h3) * var(--scale));
         --h3: calc(var(--h4) * var(--scale));
@@ -41,10 +48,17 @@
     h6 {
         font-size: var(--h6);
     }
+    p {
+        font-size: var(--small)
+    }
+
+    html {
+        color-scheme: dark;
+    }
     
     body {
-        background-color: var(--black);
-        color: var(--red);
+        color: var(--white);
+        font-family: var(--font-family);
         display: grid;
         gap: 1rem;
         grid-template-columns: 1fr 4fr;
@@ -52,21 +66,34 @@
 
     section h1 {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
+        text-transform: uppercase;
+        font-weight: 900;
+        text-shadow: 
+        2px 2px 0 var(--clr-accent-400),
+        4px 4px 0 var(--clr-secondary-400), 
+        6px 6px 0 var(--clr-primary-400);
     }
 
     section h2 {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
+        text-transform: uppercase;
+        font-weight: 900;
+        text-shadow: 
+        2px 2px 0 var(--clr-accent-400),
+        4px 4px 0 var(--clr-secondary-400), 
+        6px 6px 0 var(--clr-primary-400);
     }
 
     section p {
         display: flex;
         justify-content: center;
+        font-weight: 900;
     }
 
     .countdown {
-        font-family: var(--main);
+        font-family: var(--clr-accent-400);
     }
 
     .wrapper {
@@ -95,7 +122,9 @@
         background-position: center;
         background-repeat: no-repeat;
 
-        color: var(--red);
+        color: var(--white);
+        text-transform: uppercase;
+        font-weight: 900;
     
     }
     .card:hover {
@@ -132,7 +161,6 @@
         gap: 1rem;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-auto-rows: 240px;
-        font-family: var(--sub);  
     }
     
     .card-tall {
@@ -170,5 +198,6 @@
     .card-special {
         grid-row: span 2 /auto;
         grid-column: span 2 /auto;
+        order: 1;
     }
 }
