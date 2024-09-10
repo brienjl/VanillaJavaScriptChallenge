@@ -116,6 +116,11 @@
         flex-grow: 2;
         justify-content: space-evenly;
     }
+
+    .block p {
+        margin: 0; /* Remove any default margin between the paragraphs */
+        line-height: 1.25; /* Controls the vertical spacing between the text */
+    }
     
     .card {
         background-color: var(--black);
