@@ -5,8 +5,7 @@
         --white: #ffffff;
         --red: #f47d70e0;
 
-        /* font families */
-
+        /* fonts */
         --font-family: system-ui
         --clr-primary-300: hsl(114, 55%, 46%);
         --clr-primary-400: hsl(139, 73%, 31%);
@@ -20,36 +19,13 @@
 
 
         /* type scale*/
-        --base-size: 1.15rem;
-        --scale: 1.10;
-        --h1: calc(var(--h2) * var(--scale));
-        --h2: calc(var(--h3) * var(--scale));
-        --h3: calc(var(--h4) * var(--scale));
-        --h4: calc(var(--h5) * var(--scale));
-        --h5: calc(var(--h6) * var(--scale));
-        --h6: var(--base-size);
-        --small: calc(var(--base-size) / var(--scale));
-    }
-    h1 {
-        font-size: var(--h1);
-    }
-    h2 {
-        font-size: var(--h2);
-    }
-    h3 {
-        font-size: var(--h3);
-    }
-    h4 {
-        font-size: var(--h4);
-    }
-    h5 {
-        font-size: var(--h5);
-    }
-    h6 {
-        font-size: var(--h6);
-    }
-    p {
-        font-size: var(--small)
+        --fs-300: clamp(0.94rem, calc(0.92rem + 0.08vw), 0.98rem);
+        --fs-400: clamp(1.13rem, calc(1.06rem + 0.33vw), 1.31rem);
+        --fs-500: clamp(1.35rem, calc(1.21rem + 0.69vw), 1.75rem);
+        --fs-600: clamp(1.62rem, calc(1.37rem + 1.24vw), 2.33rem);
+        --fs-700: clamp(1.94rem, calc(1.54rem + 2.03vw), 3.11rem);
+        --fs-800: clamp(2.33rem, calc(1.7rem + 3.15vw), 4.14rem);
+        --fs-900: clamp(2.8rem, calc(1.85rem + 4.74vw), 5.52rem);
     }
 
     html {
@@ -57,8 +33,12 @@
     }
     
     body {
-        color: var(--white);
+        margin: 0;
+        color: #ddd;
         font-family: var(--font-family);
+        font-size: var(--fs-400);
+        line-height: 1.6;
+        padding-block: 6rem;
         display: grid;
         gap: 1rem;
         grid-template-columns: 1fr 4fr;
@@ -68,28 +48,57 @@
         display: flex;
         justify-content: center;
         text-transform: uppercase;
+        text-align: center;
         font-weight: 900;
+        margin: 0;
+        color: #ddd;
+        font-family: var(--font-family);
+        font-size: var(--fs-700);
         text-shadow: 
-        2px 2px 0 var(--clr-accent-400),
-        4px 4px 0 var(--clr-secondary-400), 
-        6px 6px 0 var(--clr-primary-400);
+        1px 1px 0 var(--clr-accent-400),
+        3px 3px 0 var(--clr-secondary-400), 
+        4px 4px 0 var(--clr-primary-400);
     }
 
+    hr {
+        --size: 10px;
+        border: 0;
+        height: var(--size);
+        background: white;
+        border-radius: 100vw;
+        margin: 2em;
+        box-shadow: 
+            1px 1px 0 var(--clr-accent-400), 
+            3px 3px 0 var(--clr-secondary-400), 
+            4px 4px 0 var(--clr-primary-400);
+    }
     section h2 {
         display: flex;
         justify-content: center;
         text-transform: uppercase;
+        text-align: center;
         font-weight: 900;
+        margin: 0;
+        color: #ddd;
+        font-family: var(--font-family);
+        font-size: var(--fs-600);
         text-shadow: 
-        2px 2px 0 var(--clr-accent-400),
-        4px 4px 0 var(--clr-secondary-400), 
-        6px 6px 0 var(--clr-primary-400);
+            1px 1px 0 var(--clr-accent-400),
+            3px 3px 0 var(--clr-secondary-400), 
+            4px 4px 0 var(--clr-primary-400);
     }
 
     section p {
         display: flex;
         justify-content: center;
         font-weight: 900;
+        color: #ddd;
+        font-family: var(--font-family);
+        font-size: var(--fs-400);
+            text-shadow: 
+            1px 1px 0 var(--clr-accent-400),
+            2px 2px 0 var(--clr-secondary-400), 
+            2px 2px 0 var(--clr-primary-400);
     }
 
     .countdown {
@@ -147,11 +156,57 @@
         flex-direction: column;
         text-align: center;
         transition: height 0.5s;
+        text-shadow: 
+        1px 1px 0 var(--clr-accent-400),
+        3px 3px 0 var(--clr-secondary-400), 
+        4px 4px 0 var(--clr-primary-400);
+    }
+
+    .overlay a {
+        font-size: var(--fs-300);
+        text-transform: none;
+        text-align: center;
+        font-weight: 400;
+        color: #ddd;
+        text-shadow: none;
+    }
+
+    .overlay em {
+        font-size: var(--fs-300);
+        text-transform: none;
+        text-align: center;
+        font-weight: 400;
+        color: #ddd;
+        text-shadow: none;
+    }
+
+    .overlay p {
+        font-size: var(--fs-400);
+        text-transform: none;
+        text-align: center;
+        font-weight: 400;
+        color: #ddd;
+        text-shadow: none;
     }
 
     .card:hover .overlay {
         height: 100%;
     }
+
+    .fancy-link {
+        text-decoration: none;
+        background-image: linear-gradient(90deg, red, blue 50%, currentColor 50%);
+        background-size: 200% 3px;
+        background-position: right 1.4em;
+        background-repeat: no-repeat;
+        padding-block-end: 0.25em;
+        transition: color 500ms, background-position 500ms;
+    }
+    .fancy-link:hover,
+    .fancy-link:focus {
+        color: white;
+        background-position: left 1.4em;
+}
 
 }
 
@@ -178,6 +233,11 @@
         display: grid;
         gap: 1rem;
         grid-template-columns: 1fr;
+    }
+    
+    section h1 {
+        display: flex;
+        justify-content: center;
     }
 
     .photo-grid {
