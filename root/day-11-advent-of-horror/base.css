@@ -160,7 +160,7 @@
         justify-content: left;
         flex-direction: column;
         text-align: center;
-        transition: height 0.5s;
+        transition: height 0.3s;
         text-shadow: 
         1px 1px 0 var(--clr-accent-400),
         3px 3px 0 var(--clr-secondary-400), 
