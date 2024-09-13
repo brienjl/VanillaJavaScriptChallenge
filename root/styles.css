@@ -1,13 +1,5 @@
-/* https://newtodesing.com/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-
-
 /*Load google font*/
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
-
 
 
 /* Reset Styles */
@@ -48,19 +40,19 @@ ul {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-  }
-  
-  li {
-	float: left;
-  }
+}
 
-  li a {
+li {
+	float: left;
+}
+
+li a {
 	display: block;
 	color: #4A90E2;
 	text-align: center;
 	padding: 5px;
 	text-decoration: none;
-  }
+}
 
 body {
 	line-height: 1;
@@ -70,6 +62,7 @@ body {
 	font-size: 19px;
 	background-color: #FEFEFE;
 	color: #04143A;
+	margin-left: 16px;
 }
 ol, ul {
 	list-style: none;
@@ -109,11 +102,11 @@ div , footer {
 .container {
 	max-width: 1100px;
 	height: auto;
-	margin: 60px auto;
+	margin: 32px auto;
 }
 
 .hero {
-	margin: 50px auto; 
+	margin: 32px auto; 
 	position: relative;
 }
 
@@ -146,8 +139,7 @@ h1.name {
 
 .sections {
 	vertical-align: top;
-	display: inline-block;
-	width: 49.7%;
+	width: 60%;
 	height: 50px;
 }
 
@@ -190,12 +182,3 @@ h1.name {
 	color: #81899C;
 	line-height: 22px;
 }
-
-/* ---- Hover effects ---- */
-li:hover {
-	color: #48A4D2;
-  }
-  li .description {
-	display: block;
-  }
-/* End of all :P*/
