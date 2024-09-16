@@ -80,6 +80,10 @@ table {
 	border-spacing: 0;
 }
 
+h1 {
+	color: #2a7cd8;
+}
+
 p {
 	color: #15171a;
 	font-size: 17;
