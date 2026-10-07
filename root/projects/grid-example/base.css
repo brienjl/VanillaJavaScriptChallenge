@@ -133,7 +133,6 @@
         filter: opacity(75%);
     
         background-size: cover;
-        background-position: center;
         background-repeat: no-repeat;
 
         color: var(--white);
@@ -144,6 +143,27 @@
     .card:hover {
         box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
         transform: translateY(0px) scale(1.05);
+    }
+
+    .title-top {
+        background-position: top;
+    }
+    .title-top-left {
+        background-position: top, left;
+    }
+
+    .title-middle {
+        background-position: center;
+    }
+
+    .title-bottom {
+        background-position: bottom;
+    }
+    .title-bottom-right {
+        background-position: bottom right;
+    }
+    .title-bottom-left {
+        background-position: bottom left;
     }
 
     .overlay {
